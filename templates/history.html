@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<table class="table mx-10">
+    <thead>
+        <tr>
+            <th scope="col">Action</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Total</th>
+            <th scope="col">Transacted</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in history %}
+            <tr>
+                <td>{{ item["action"] }}</td>
+                <td>{{ item["symbol"] }}</td>
+                <td>{{ item["shares"] }}</td>
+                <td>{{ item["total"] | usd }}</td>
+                <td>{{ item["time"]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

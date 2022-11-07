@@ -1,0 +1,20 @@
+{% extends "quote.html" %}
+
+{% block quote %}
+    <table class="table mx-10">
+        <thead>
+            <tr>
+                <th scope="col">Company</th>
+                <th scope="col">Symbol</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ company }}</th>
+                <td>{{ symbol }}</td>
+                <td>{{ price | usd }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

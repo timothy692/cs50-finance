@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div id="wallet" class="container">
+    <div class="row">
+        <div class="col-sm-5 col-md-">
+            <p class="fs-3 mb-0 font-monospace">Balance</p>
+            <div class="badge bg-primary text-wrap p-3 font-monospace" style="width: 12em; font-size: 16px;">
+                {{ cash | usd }}
+            </div>
+        </div>
+        <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+            <p class="fs-3 mb-0 font-monospace">Grand Total</p>
+            <div class="badge bg-primary text-wrap p-3 font-monospace" style="width: 12rem; font-size: 16px;">
+                {{ grandtotal | usd }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table mx-10">
+    <thead>
+        <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Company</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total owned</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stock in stocks %}
+            <tr>
+                <td>{{ stock["symbol"] }}</td>
+                <td>{{ stock["name"] }}</td>
+                <td>{{ stock["shares"] }}</td>
+                <td>{{ stock["price"] | usd }}</td>
+                <td>{{ stock["total"] | usd }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
